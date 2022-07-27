@@ -63,4 +63,12 @@ public class ParkingService implements IParkingService {
         }
     }
 
+    public Parking checkOut(Long id){
+        Parking parking = findById(id);
+        ParkingCheckOut.checkOut(parking);
+        ParkingCheckOut.calculateBill(parking);
+        parkingRepository.save(parking);
+        return parking;
+    }
+
 }

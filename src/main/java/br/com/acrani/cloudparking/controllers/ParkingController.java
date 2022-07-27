@@ -70,4 +70,14 @@ public class ParkingController {
         parkingService.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @Operation(summary = "Checkout parking",
+            description = "Checkout parking",
+            tags = "Parking")
+    @PutMapping("/checkout/{id}")
+    public ResponseEntity<Parking> checkout(@PathVariable Long id){
+        Parking parking = parkingService.checkOut(id);
+        return ResponseEntity.ok().body(parking);
+    }
+
 }

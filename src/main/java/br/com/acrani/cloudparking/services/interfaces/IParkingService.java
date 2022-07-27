@@ -39,4 +39,11 @@ public interface IParkingService {
      * @param id - id do parking para deletar
      */
     void delete(Long id);
+
+    /**
+     * Insere o horário de saída e o valor a pagar
+     * @param id - id do parking
+     * @return - parking com horário de saída
+     */
+    Parking checkOut(Long id);
 }
